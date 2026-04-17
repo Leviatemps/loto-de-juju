@@ -56,22 +56,21 @@
 
     header .logo-svg { display: block; margin: 0 auto .6rem; width: 120px; height: 100px; }
 
-    /* Poignée de machine à sous : tire vers le bas puis remonte avec rebond */
+    /* Poignée : mouvement vers l'avant (perspective 3D) */
     @keyframes leverPull {
-      0%   { transform: rotate(0deg); }   /* repos */
-      15%  { transform: rotate(5deg); }   /* légère montée avant le tirage */
-      40%  { transform: rotate(55deg); }  /* tirage vers le bas */
-      58%  { transform: rotate(55deg); }  /* maintien en bas */
-      72%  { transform: rotate(-8deg); }  /* remontée avec dépassement */
-      83%  { transform: rotate(4deg); }   /* rebond 1 */
-      91%  { transform: rotate(-2deg); }  /* rebond 2 */
-      100% { transform: rotate(0deg); }   /* repos */
+      0%   { transform: perspective(200px) rotateX(0deg); }
+      20%  { transform: perspective(200px) rotateX(-5deg); }   /* légère tension */
+      45%  { transform: perspective(200px) rotateX(55deg); }   /* tirage vers l'avant */
+      60%  { transform: perspective(200px) rotateX(55deg); }   /* maintien */
+      75%  { transform: perspective(200px) rotateX(-8deg); }   /* retour avec dépassement */
+      86%  { transform: perspective(200px) rotateX(4deg); }    /* rebond */
+      94%  { transform: perspective(200px) rotateX(-1deg); }
+      100% { transform: perspective(200px) rotateX(0deg); }    /* repos */
     }
 
     .logo-levier {
-      transform-origin: 101px 68px; /* pivot au bas du levier */
-      animation: leverPull 1.8s 0.4s ease-in-out infinite;
-      animation-iteration-count: infinite;
+      transform-origin: 101px 68px;
+      animation: leverPull 2.2s 0.5s ease-in-out infinite;
     }
     .logo-piece-2   { animation: piece 0.7s 1.2s ease-in both; }
     .logo-piece-3   { animation: piece 0.7s 1.4s ease-in both; }
