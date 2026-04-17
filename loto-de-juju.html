@@ -395,7 +395,7 @@
 
   <!-- ===== Numéro complémentaire ===== -->
   <div class="card complementaire">
-    <h2>🔴 Numéros complémentaires (1 – 10)</h2>
+    <h2>🔴 Numéros complémentaires (1 – 12)</h2>
 
     <div class="balls-zone" id="comp-balls">
       <div class="placeholder" id="comp-placeholder">
@@ -525,7 +525,7 @@
     ============================================================ */
     function tirerComplementaire() {
       // 2 numéros complémentaires distincts entre 1 et 10
-      const numeros = genererUniques(1, 10, 2);
+      const numeros = genererUniques(1, 12, 2);
 
       const zone = document.getElementById('comp-balls');
       zone.innerHTML = '';
