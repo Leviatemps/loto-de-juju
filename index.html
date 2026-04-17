@@ -56,21 +56,15 @@
 
     header .logo-svg { display: block; margin: 0 auto .6rem; width: 120px; height: 100px; }
 
-    /* Poignée : mouvement vers l'avant (perspective 3D) */
-    @keyframes leverPull {
-      0%   { transform: perspective(200px) rotateX(0deg); }
-      20%  { transform: perspective(200px) rotateX(-5deg); }   /* légère tension */
-      45%  { transform: perspective(200px) rotateX(55deg); }   /* tirage vers l'avant */
-      60%  { transform: perspective(200px) rotateX(55deg); }   /* maintien */
-      75%  { transform: perspective(200px) rotateX(-8deg); }   /* retour avec dépassement */
-      86%  { transform: perspective(200px) rotateX(4deg); }    /* rebond */
-      94%  { transform: perspective(200px) rotateX(-1deg); }
-      100% { transform: perspective(200px) rotateX(0deg); }    /* repos */
+    /* Étoile qui tourne sur elle-même */
+    @keyframes spinStar {
+      from { transform: rotate(0deg); }
+      to   { transform: rotate(360deg); }
     }
 
-    .logo-levier {
-      transform-origin: 101px 68px;
-      animation: leverPull 2.2s 0.5s ease-in-out infinite;
+    .logo-etoile {
+      transform-origin: 77px 53px; /* centre du rouleau étoile */
+      animation: spinStar 2s linear infinite;
     }
     .logo-piece-2   { animation: piece 0.7s 1.2s ease-in both; }
     .logo-piece-3   { animation: piece 0.7s 1.4s ease-in both; }
@@ -335,7 +329,7 @@
       <!-- Rouleau 3 — ⭐ -->
       <g class="logo-rouleau-3">
         <rect x="68" y="39" width="18" height="28" rx="3" fill="#1e1e3f"/>
-        <text x="77" y="58" font-size="16" text-anchor="middle" font-family="Arial, sans-serif">⭐</text>
+        <text class="logo-etoile" x="77" y="58" font-size="16" text-anchor="middle" font-family="Arial, sans-serif">⭐</text>
       </g>
 
       <!-- Ligne gagnante -->
@@ -346,7 +340,7 @@
       <text x="52" y="84" font-size="6" fill="white" font-family="Arial Black, sans-serif" font-weight="900" text-anchor="middle" letter-spacing="1">SPIN</text>
 
       <!-- Levier -->
-      <g class="logo-levier">
+      <g>
         <rect x="98" y="30" width="6" height="38" rx="3" fill="url(#leverGrad)" stroke="#b5182f" stroke-width="1"/>
         <circle cx="101" cy="28" r="6" fill="#e8344e" stroke="#b5182f" stroke-width="1.5"/>
         <circle cx="101" cy="28" r="3" fill="#ff9999" opacity="0.6"/>
